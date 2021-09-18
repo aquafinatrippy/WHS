@@ -2,30 +2,14 @@ import React from 'react';
 import {View, StyleSheet, Text, TouchableOpacity} from 'react-native';
 import Home from './views/Home';
 import Times from './views/Times';
-import {NativeRouter, Route, Link} from 'react-router-native';
-import Icon from 'react-native-vector-icons/dist/FontAwesome5';
+import {NativeRouter, Route} from 'react-router-native';
+import Header from './components/Header';
 
 const App = () => {
   return (
     <NativeRouter>
       <View style={styles.container}>
-        <View style={styles.nav}>
-          <Text style={styles.navTitle}>Work Hours Manager</Text>
-          <View style={styles.links}>
-            <TouchableOpacity>
-              <Link to="/" underlayColor="#f0f4f7" style={styles.navItem}>
-                <Text style={styles.navLink}>
-                  <Icon name="home" size={20} />
-                </Text>
-              </Link>
-            </TouchableOpacity>
-            <Link to="/history" underlayColor="#f0f4f7" style={styles.navItem}>
-              <Text style={styles.navLink}>
-                <Icon name="calendar-plus" size={20} />
-              </Text>
-            </Link>
-          </View>
-        </View>
+        <Header />
         <Route exact path="/" component={Home} />
         <Route exact path="/history" component={Times} />
       </View>
